@@ -23,7 +23,26 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
     // Cordova is now initialized. Have fun!
+    alert("onDeviceReady");
 
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
+
+    document.addEventListener("pause", onPause, false);
+    document.addEventListener("resume", onResume, false);
+
+    function onPause() {
+        // Handle the pause event
+        setTimeout(function() {
+            alert("pause");
+          }, 0);
+    }
+    
+    function onResume() {
+        // Handle the resume event
+        setTimeout(function() {
+            alert("resume");
+          }, 0);
+    }
+
 }
